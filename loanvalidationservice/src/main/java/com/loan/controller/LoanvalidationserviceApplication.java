@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/validation/")
 public class LoanvalidationserviceApplication {
     private org.slf4j.Logger logger= LoggerFactory.getLogger(this.getClass());
 
