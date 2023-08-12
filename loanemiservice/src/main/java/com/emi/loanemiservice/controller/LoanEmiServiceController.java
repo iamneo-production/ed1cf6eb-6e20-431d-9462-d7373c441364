@@ -1,11 +1,11 @@
-package com.rmi.loaneligibilityservice.controller;
+package com.emi.loanemiservice.controller;
 
-import com.emi.emiservice.model.Customer;
-import com.emi.emiservice.model.Message;
-import com.emi.emiservice.proxy.CustomerNotificationProxy;
-import com.emi.emiservice.proxy.InterestRateProxy;
-import com.emi.emiservice.proxy.LoanEligibilityProxy;
-import com.emi.emiservice.proxy.LoanValidationProxy;
+import com.emi.loanemiservice.model.Customer;
+import com.emi.loanemiservice.model.Message;
+import com.emi.loanemiservice.proxy.CustomerNotificationProxy;
+import com.emi.loanemiservice.proxy.InterestRateProxy;
+import com.emi.loanemiservice.proxy.LoanEligibilityProxy;
+import com.emi.loanemiservice.proxy.LoanValidationProxy;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;

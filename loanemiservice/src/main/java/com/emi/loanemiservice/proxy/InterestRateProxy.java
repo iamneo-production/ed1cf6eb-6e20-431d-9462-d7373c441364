@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient("interest-service")
 public class InterestRateProxy {
     @GetMapping("/get-interest-rate")
-    public int getInterestRate(@PathVariable String loanType);
+    int getInterestRate(@PathVariable String loanType);
 }

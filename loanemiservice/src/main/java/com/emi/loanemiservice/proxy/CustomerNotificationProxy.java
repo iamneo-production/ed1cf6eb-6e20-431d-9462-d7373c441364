@@ -11,5 +11,5 @@ public class CustomerNotificationProxy {
     @PostMapping(path = "/send-notification",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public Message customerNotification(@RequestBody Message message);
+    Message customerNotification(@RequestBody Message message);
 }
