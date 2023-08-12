@@ -3,7 +3,7 @@ package com.loan.emi.emiservice.controller;
 public class Customer {
     private String customerName;
     private int custId;
-    private Double laonAmount;
+    private int laonAmount;
     private int age;
     private String ssn;
     private String loanType;
@@ -25,11 +25,11 @@ public class Customer {
         this.custId = custId;
     }
 
-    public Double getLaonAmount() {
+    public int getLaonAmount() {
         return laonAmount;
     }
 
-    public void setLaonAmount(Double laonAmount) {
+    public void setLaonAmount(int laonAmount) {
         this.laonAmount = laonAmount;
     }
 

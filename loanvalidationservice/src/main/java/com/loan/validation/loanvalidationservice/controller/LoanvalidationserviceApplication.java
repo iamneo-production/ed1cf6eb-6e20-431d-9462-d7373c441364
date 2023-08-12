@@ -19,7 +19,7 @@ public class LoanvalidationserviceApplication {
         Assert.notNull(customer, "Customer should not be empty");
         Message message = null;
 
-        boolean ageValidation = customer.getAge() >= 50;
+        boolean ageValidation = customer.getAge() <= 50;
         boolean validSSN = customer.getSsn().length() == 9;
 
         if (ageValidation && validSSN) {

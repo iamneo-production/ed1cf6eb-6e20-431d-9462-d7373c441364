@@ -16,10 +16,10 @@ public class LoanEligibilityController {
     Message checkLoanEligibility(@RequestBody Customer customer) {
         Message message;
 
-        if( customer.getAge() >= 55
-                && (customer.getLoanType().equals("Home Loan") && Double.compare(customer.getLaonAmount(), Double.valueOf(5000000)) > 0 && customer.getDuration() > 25)
-                && (customer.getLoanType().equals("Personal Loan") && Double.compare(customer.getLaonAmount(), Double.valueOf(3000000)) > 0 && customer.getDuration() > 5)
-                && (customer.getLoanType().equals("Gold Loan") && Double.compare(customer.getLaonAmount(), Double.valueOf(1000000)) > 0 && customer.getDuration() > 2) )
+        if( customer.getAge() >= 55 && 
+                ((customer.getLoanType().equals("Home Loan") && (customer.getLaonAmount() > 5000000) && customer.getDuration() > 25)
+                || (customer.getLoanType().equals("Personal Loan") && (customer.getLaonAmount() > 3000000) && customer.getDuration() > 5)
+                || (customer.getLoanType().equals("Gold Loan") && (customer.getLaonAmount() > 1000000) && customer.getDuration() > 2)) )
         {
             message = new Message("Customer Loan Eligibility Failed");
         } else {
