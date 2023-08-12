@@ -1,4 +1,4 @@
-package com.emi.loanemiservice.controller;
+package com.loan.emi.emiservice.controller;
 
 public class Customer {
     private String customerName;

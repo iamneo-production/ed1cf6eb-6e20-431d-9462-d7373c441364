@@ -1,5 +1,4 @@
-package com.emi.loanemiservice.controller;
-
+package com.loan.emi.emiservice.controller;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
