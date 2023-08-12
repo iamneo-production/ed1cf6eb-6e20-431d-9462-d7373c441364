@@ -1,4 +1,4 @@
-package com.emi.loanemiservice.model;
+package com.emi.loanemiservice.controller;
 
 public class Customer {
 

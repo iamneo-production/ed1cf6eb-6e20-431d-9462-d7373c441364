@@ -1,4 +1,4 @@
-package com.emi.loanemiservice.proxy;
+package com.emi.loanemiservice.controller;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

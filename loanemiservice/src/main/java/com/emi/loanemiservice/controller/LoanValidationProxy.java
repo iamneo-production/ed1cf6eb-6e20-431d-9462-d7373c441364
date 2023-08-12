@@ -1,7 +1,5 @@
-package com.emi.loanemiservice.proxy;
+package com.emi.loanemiservice.controller;
 
-import com.emi.loanemiservice.model.Customer;
-import com.emi.loanemiservice.model.Message;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
