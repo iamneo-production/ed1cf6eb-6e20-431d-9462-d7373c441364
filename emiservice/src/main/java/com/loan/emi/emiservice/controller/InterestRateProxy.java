@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient("interest-service")
 public interface InterestRateProxy {
-    @GetMapping("/get-interest-rate/{loanType}")
+    @GetMapping("/interest/get-interest-rate/{loanType}")
     public int getInterestRate(@PathVariable String loanType);
 }
