@@ -23,7 +23,7 @@ public class LoanEligibilityController {
         {
             message = new Message("Customer Loan Eligibility Failed");
         } else {
-            message = new Message( "Customer Loan Eligibility Successful");
+            message = new Message( "Customer Loan Eligibility Successfull");
         }
 
         return message;

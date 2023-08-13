@@ -23,8 +23,8 @@ public class LoanValidationController {
         boolean validSSN = customer.getSsn().length() == 9;
 
         if (ageValidation && validSSN) {
-            logger.info("Customer Loan Validation Successful");
-            return new Message("Customer Loan Validation Successful");
+            logger.info("Customer Loan Validation Successfull");
+            return new Message("Customer Loan Validation Successfull");
         }
 
         logger.info("Customer Loan Validation Failed");
