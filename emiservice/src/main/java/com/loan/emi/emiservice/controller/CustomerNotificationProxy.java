@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient("customer-service")
 public interface CustomerNotificationProxy {
     @PostMapping("/customer/send-notification")
-    public Message customerNotification(@RequestBody CustomerMessage message);
+    public boolean customerNotification(@RequestBody CustomerMessage message);
 }

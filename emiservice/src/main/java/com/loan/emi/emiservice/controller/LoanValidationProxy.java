@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient("validation-service")
 public interface LoanValidationProxy {
     @PostMapping("/validation/validate-loan-details")
-    public Message validateLoanDetails(@RequestBody Customer customer);
+    public boolean validateLoanDetails(@RequestBody Customer customer);
 }
 

@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient("eligibility-service")
 public interface LoanEligibilityProxy {
     @PostMapping("/eligibility/check-loan-eligibility")
-    public Message checkLoanEligibility(@RequestBody Customer customer);
+    public boolean checkLoanEligibility(@RequestBody Customer customer);
 }
 

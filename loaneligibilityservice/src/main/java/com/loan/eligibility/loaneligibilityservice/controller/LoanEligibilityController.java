@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoanEligibilityController {
     
     @PostMapping("/check-loan-eligibility")
-    Message checkLoanEligibility(@RequestBody Customer customer) {
+    boolean checkLoanEligibility(@RequestBody Customer customer) {
         Message message;
 
         if( customer.getAge() >= 55 && 
@@ -22,11 +22,12 @@ public class LoanEligibilityController {
                 || (customer.getLoanType().equals("Gold Loan") && (customer.getLaonAmount() > 1000000) && customer.getDuration() > 2)) )
         {
             message = new Message("Customer Loan Eligibility Failed");
+            return false;
         } else {
             message = new Message( "Customer Loan Eligibility Successfull");
         }
-
-        return message;
+        System.out.println("Message : " + message.getMessage());
+        return true;
     }
   
 }

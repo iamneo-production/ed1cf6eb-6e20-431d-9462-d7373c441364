@@ -15,7 +15,7 @@ public class LoanValidationController {
     private org.slf4j.Logger logger= LoggerFactory.getLogger(this.getClass());
 
     @PostMapping("/validate-loan-details")
-    public Message validateLoanDetails(@RequestBody Customer customer) {
+    public boolean validateLoanDetails(@RequestBody Customer customer) {
         Assert.notNull(customer, "Customer should not be empty");
         Message message = null;
 
@@ -24,10 +24,10 @@ public class LoanValidationController {
 
         if (ageValidation && validSSN) {
             logger.info("Customer Loan Validation Successfull");
-            return new Message("Customer Loan Validation Successfull");
+            return true;
         }
 
         logger.info("Customer Loan Validation Failed");
-        return new Message("Customer Loan Validation Failed");
+        return false;
     }
 }

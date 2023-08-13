@@ -32,14 +32,14 @@ public class LoanEmiServiceController {
     private CustomerNotificationProxy customerNotificationProxy;
 
     @PostMapping("/calculate-emi")
-    public Message calculateEmi(@RequestBody Customer customer) {
+    public String calculateEmi(@RequestBody Customer customer) {
         Assert.notNull(customer, "Customer should be not null.");
         CustomerMessage customerMessage = null;
         Message message = null;
-        Message validateLoanMessage = validationProxy.validateLoanDetails(customer);
-        if ( Objects.nonNull(validateLoanMessage) && validateLoanMessage.getMessage().equals(CUSTOMER_VALIDATION_SUCCESSFUL) ) {
-            Message loanEligibilityMessage = eligibilityProxy.checkLoanEligibility(customer);
-            if ( Objects.nonNull(loanEligibilityMessage) && validateLoanMessage.getMessage().equals(LOAN_ELIGIBILITY_SUCCESSFUL) ) {
+        boolean validateLoanMessage = validationProxy.validateLoanDetails(customer);
+        if (validateLoanMessage) {
+            boolean loanEligibilityMessage = eligibilityProxy.checkLoanEligibility(customer);
+            if ( loanEligibilityMessage ) {
                 int interestRate = interestRateProxy.getInterestRate(customer.getLoanType());
 
                  String messagestr = "Dear " + customer.getCustomerName()
@@ -56,10 +56,11 @@ public class LoanEmiServiceController {
             message = new Message(EMI_CALCULATION_FAILED_DUE_TO_CUSTOMER_VALIDATION_FAILED);
             logger.info(message.getMessage()); 
         }
-        message = customerNotificationProxy.customerNotification(customerMessage);                       
+        boolean customerResponse = customerNotificationProxy.customerNotification(customerMessage);                       
         if (Objects.nonNull(message)) {
             logger.info("Message : " + message.getMessage());
         }
-        return message;
+        String finalMessage = customerResponse ? (customerMessage.getCustomerMessage()) : message.getMessage();
+        return finalMessage;
     }
 }
