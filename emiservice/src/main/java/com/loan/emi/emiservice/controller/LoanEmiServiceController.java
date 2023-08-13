@@ -34,6 +34,7 @@ public class LoanEmiServiceController {
     @PostMapping("/calculate-emi")
     public Message calculateEmi(@RequestBody Customer customer) {
         Assert.notNull(customer, "Customer should be not null.");
+        CustomerMessage customerMessage = null;
         Message message = null;
         Message validateLoanMessage = validationProxy.validateLoanDetails(customer);
         if ( Objects.nonNull(validateLoanMessage) && validateLoanMessage.getMessage().equals(CUSTOMER_VALIDATION_SUCCESSFUL) ) {
@@ -41,9 +42,11 @@ public class LoanEmiServiceController {
             if ( Objects.nonNull(validateLoanMessage) && validateLoanMessage.getMessage().equals(LOAN_ELIGIBILITY_SUCCESSFUL) ) {
                 int interestRate = interestRateProxy.getInterestRate(customer.getLoanType());
 
-                 message = new Message("Dear " + customer.getCustomerName()
+                 String messagestr = "Dear " + customer.getCustomerName()
                         + ", You are eligible for " + customer.getLoanType() + " of " + customer.getLaonAmount() +", with Interest Rate of "
-                        + interestRate + " for the Period of " + customer.getDuration());
+                        + interestRate + " for the Period of " + customer.getDuration();
+                customerMessage = new CustomerMessage();
+                customerMessage.setCustomerMessage(messagestr);
                 logger.info("Message : " + message.getMessage());
             } else {
                 message = new Message(EMI_CALCULATION_FAILED_DUE_TO_CUSTOMER_ELIGIBILITY_FAILED);            }
@@ -51,7 +54,7 @@ public class LoanEmiServiceController {
             message = new Message(EMI_CALCULATION_FAILED_DUE_TO_CUSTOMER_VALIDATION_FAILED);
 
         }
-        customerNotificationProxy.customerNotification(message);
+        message = customerNotificationProxy.customerNotification(customerMessage);
         return message;
 
     }

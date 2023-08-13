@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CustomerNotificationController {
 
     @PostMapping(path = "/send-notification")
-    public Message customerNotification(@RequestBody Message message) {
-        System.out.println(message);
+    public Message customerNotification(@RequestBody CustomerMessage customerMessage) {
+        System.out.println(customerMessage.getCustomerMessage());
         return new Message("Message sent to customer");
     }
     

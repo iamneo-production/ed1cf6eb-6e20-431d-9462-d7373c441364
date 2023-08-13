@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 @RequestMapping("/interest/")
 public class LoanInterestController {
-    @GetMapping("/get-interest-rate")
+    @GetMapping("/get-interest-rate/{loanType}")
     public int getInterestRate(@PathVariable String loanType) {
         int interestRate = 0;
 
