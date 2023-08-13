@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient("customer-service")
 public interface CustomerNotificationProxy {
-    @PostMapping(path = "/customer/send-notification",
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("/customer/send-notification")
     public Message customerNotification(@RequestBody CustomerMessage message);
 }

@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient("eligibility-service")
 public interface LoanEligibilityProxy {
-    @PostMapping(path = "/eligibility/check-loan-eligibility",
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("/eligibility/check-loan-eligibility")
     public Message checkLoanEligibility(@RequestBody Customer customer);
 }
 

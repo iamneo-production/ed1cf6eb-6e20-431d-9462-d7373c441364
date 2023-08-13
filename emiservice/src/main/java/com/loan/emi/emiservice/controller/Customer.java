@@ -1,27 +1,12 @@
 package com.loan.emi.emiservice.controller;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class Customer {
-    @JsonProperty("customerName")
     private String customerName;
-
-    @JsonProperty("customerName")
     private int custId;
-
-    @JsonProperty("laonAmount")
     private int laonAmount;
-
-    @JsonProperty("age")
     private int age;
-
-    @JsonProperty("ssn")
     private String ssn;
-
-    @JsonProperty("loanType")
     private String loanType;
-
-    @JsonProperty("duration")
     private int duration;
 
     public String getCustomerName() {

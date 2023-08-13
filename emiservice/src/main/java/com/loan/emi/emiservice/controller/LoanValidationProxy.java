@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient("validation-service")
 public interface LoanValidationProxy {
-    @PostMapping(path = "/validation/validate-loan-details",
-    consumes = MediaType.APPLICATION_JSON_VALUE,
-    produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("/validation/validate-loan-details")
     public Message validateLoanDetails(@RequestBody Customer customer);
 }
 
