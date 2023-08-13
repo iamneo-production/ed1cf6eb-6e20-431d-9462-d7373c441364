@@ -44,7 +44,7 @@ public class LoanEmiServiceController {
 
                  String messagestr = "Dear " + customer.getCustomerName()
                         + ", You are eligible for " + customer.getLoanType() + " of " + customer.getLaonAmount() +", with Interest Rate of "
-                        + interestRate + " for the Period of " + customer.getDuration();
+                        + interestRate + "% for the duration of " + customer.getDuration() + " years";
                 customerMessage = new CustomerMessage();                
                 customerMessage.setCustomerMessage(messagestr); 
                 logger.info(messagestr);
