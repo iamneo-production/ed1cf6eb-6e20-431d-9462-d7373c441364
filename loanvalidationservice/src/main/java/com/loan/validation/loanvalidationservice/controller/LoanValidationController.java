@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 @RequestMapping("/validation/")
-public class LoanvalidationserviceApplication {
+public class LoanValidationController {    
     private org.slf4j.Logger logger= LoggerFactory.getLogger(this.getClass());
 
     @PostMapping("/validate-loan-details")
