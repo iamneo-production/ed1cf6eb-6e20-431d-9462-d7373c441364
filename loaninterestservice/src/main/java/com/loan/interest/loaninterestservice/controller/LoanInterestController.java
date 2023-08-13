@@ -10,14 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoanInterestController {
     @GetMapping("/get-interest-rate")
     public int getInterestRate(@PathVariable String loanType) {
-
         int interestRate = 0;
 
-        switch (loanType) {
-            case "Personal Loan" : interestRate = 10; break;
-            case "Home Loan" : interestRate = 8; break;
-            case "Gold Loan" : interestRate = 7; break;
+        if ( loanType != null && loanType.equals("Home Loan") ) {
+             interestRate = 10;
+        } else if ( loanType != null && loanType.equals("Personal Loan") ) {
+             interestRate = 8;
+        } else if ( ( loanType != null && loanType.equals("Gold Loan")) ) {
+             interestRate = 7;
         }
+
         return interestRate;
     }
 }
