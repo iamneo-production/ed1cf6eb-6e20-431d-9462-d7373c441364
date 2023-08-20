@@ -12,6 +12,7 @@ import com.loanservice.loaneglibilityservice.service.LoanEligibilityService;
 
 
 @RestController
+@RequestMapping("/eligibility")
 public class LoanEligibilityController {
 
     @Autowired

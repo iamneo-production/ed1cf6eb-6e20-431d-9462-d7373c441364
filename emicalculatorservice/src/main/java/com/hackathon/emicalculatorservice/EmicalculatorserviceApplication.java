@@ -1,15 +1,17 @@
-package com.hackathon.emicalculatorservice;
+package com.emiCalculatorService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
+@EnableFeignClients
 @EnableDiscoveryClient
-public class EmicalculatorserviceApplication {
+public class EmiCalculatorServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EmicalculatorserviceApplication.class, args);
+		SpringApplication.run(EmiCalculatorServiceApplication.class, args);
 	}
 
 }
